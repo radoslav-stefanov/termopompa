@@ -1,4 +1,5 @@
-FROM alpine:3.11
+#FROM alpine:3.11
+FROM php:7.4-fpm-alpine3.12
 LABEL Maintainer="Radoslav Stefanov <radoslav@rstefanov.info>" \
       Description="Lightweight container with Nginx and PHP-FPM 7, based on Alpine Linux."
 

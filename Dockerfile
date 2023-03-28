@@ -3,19 +3,19 @@ FROM php:7.4-fpm-alpine3.12
 LABEL Maintainer="Radoslav Stefanov <radoslav@rstefanov.info>" \
       Description="Lightweight container with Nginx and PHP-FPM 7, based on Alpine Linux."
 
-# Install packages
-RUN apk --no-cache add php7 php7-fpm php7-iconv php7-json php7-openssl php7-curl \
-    php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
-    php7-mbstring php7-gd nginx supervisor curl php7-mysqli
-
-# Configure php
-RUN touch /etc/php7/conf.d/uploads.ini \
-    && echo "upload_max_filesize = 10240M" >> /etc/php7/conf.d/uploads.ini \
-    && echo "post_max_size = 10240M" >> /etc/php7/conf.d/uploads.ini \
-    && echo "output_buffering = 0" >> /etc/php7/conf.d/uploads.ini \
-    && echo "max_input_time = 7200" >> /etc/php7/conf.d/uploads.ini \
-    && echo "max_execution_time = 7200" >> /etc/php7/conf.d/uploads.ini \
-    && echo "memory_limit = 1024M" >> /etc/php7/conf.d/uploads.ini
+## Install packages
+#RUN apk --no-cache add php7 php7-fpm php7-iconv php7-json php7-openssl php7-curl \
+#    php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
+#    php7-mbstring php7-gd nginx supervisor curl php7-mysqli
+#
+## Configure php
+#RUN touch /etc/php7/conf.d/uploads.ini \
+#    && echo "upload_max_filesize = 10240M" >> /etc/php7/conf.d/uploads.ini \
+#    && echo "post_max_size = 10240M" >> /etc/php7/conf.d/uploads.ini \
+#    && echo "output_buffering = 0" >> /etc/php7/conf.d/uploads.ini \
+#    && echo "max_input_time = 7200" >> /etc/php7/conf.d/uploads.ini \
+#    && echo "max_execution_time = 7200" >> /etc/php7/conf.d/uploads.ini \
+#    && echo "memory_limit = 1024M" >> /etc/php7/conf.d/uploads.ini
 
 # Configure supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
